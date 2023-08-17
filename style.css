@@ -76,7 +76,7 @@
   }
 }
 
-/* to adjust */
+/* For Mobile */
 @media only screen and (max-width: 819px) {
   body {
     height: 100vh;
@@ -87,7 +87,7 @@
   }
   
   #image-track {
-    display: flex;
+    display: center;
     gap: 4vmin;
     position: absolute;
     left: 50%;
