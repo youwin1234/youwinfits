@@ -101,7 +101,7 @@
     transform: translate(-50%, -50%);
     user-select: none;
     width: min(1000px, 92vw);
-    height: 80vh;
+    height: 100vh;
     overflow-x: visible;
     overflow-y: hidden;
     align-items: center;
