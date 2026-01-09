@@ -30,6 +30,24 @@ const handleOnMove = e => {
   }
 }
 
+function updateTrackHalf() {
+  const rect = track.getBoundingClientRect();
+  const half = rect.height / 2;
+  document.documentElement.style.setProperty('--track-half', `${half}px`);
+}
+
+// update on load and resize, and when any image becomes available
+window.addEventListener('load', updateTrackHalf);
+window.addEventListener('resize', updateTrackHalf);
+for (const img of track.getElementsByTagName('img')) {
+  if (img.complete) continue;
+  img.addEventListener('load', updateTrackHalf);
+}
+
+updateTrackHalf(); // initial run
+
+window.handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
+
 window.onmousedown = e => handleOnDown(e);
 
 window.ontouchstart = e => handleOnDown(e.touches[0]);

@@ -6,7 +6,7 @@
     margin: 0rem;
     overflow: hidden;
   }
-
+  
   #image-track {
     display: flex;
     gap: 4vmin;
@@ -16,14 +16,14 @@
     transform: translate(0%, -50%); 
     user-select: none; /* -- Prevent image highlighting -- */
   }
-
+  
   #image-track > .image {
     width: 40vmin;
     height: 56vmin;
     object-fit: cover;
     object-position: 100% center;
   }
-
+  
   body.menu-toggled > .meta-link > span {
     color: rgb(30, 30, 30);
   }
@@ -35,15 +35,15 @@
   #prt-link > i {
     color: rgb(148, 141, 233);
   }
-
-  #art-link > i {
-    color: rgb(153, 118, 235);
-  }
-
+  
   #insta-link > i {
     color: rgb(233, 148, 141);
   }
 
+  #art-link > i {
+    color: rgb(170, 164, 241);
+  }
+  
   .meta-link {
     align-items: center;
     backdrop-filter: blur(3px);
@@ -62,17 +62,17 @@
     transition: background-color 400ms, border-color 400ms;
     z-index: 10000;
   }
-
+  
   .meta-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
-
+  
   .meta-link > i, .meta-link > span {
     height: 20px;
     line-height: 20px;
   }
-
+  
   .meta-link > span {
     color: white;
     font-family: "Rubik", sans-serif;
@@ -89,28 +89,30 @@
     margin: 0rem;
     overflow: hidden;
   }
+  
+   #image-track {
+    --visible: 4;         /* fewer visible tiles on very small screens */
+    --gap: 8px;
 
-  #image-track {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 12px;
-    align-items: center;
+    gap: var(--gap);
+    position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    position: absolute; /* absolute so centering works the same as desktop */
-    width: max-content; /* keep all images on one horizontal line */
-    white-space: nowrap;
     user-select: none;
+
+    width: min(1000px, 92vw);
+    height: 40vh;
+    overflow: hidden;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   #image-track > .image {
-    flex: 0 0 auto;
-    display: block;
-    width: auto;
-    height: 56vh; /* lower so more images fit */
-    min-width: 100px;
+    flex: 0 0 calc((100% - ( (var(--visible) - 1) * var(--gap) )) / var(--visible));
+    min-width: 48px;
+    height: 100%;
     object-fit: cover;
     object-position: 100% center;
     pointer-events: none;
@@ -125,17 +127,17 @@
   }
   
   #prt-link > i {
-    color: rgb(148, 141, 233);
+    color: rgb(170, 164, 241);
   }
 
   #art-link > i {
-    color: rgb(153, 118, 235);
+    color: rgb(170, 164, 241);
   }
-
+  
   #insta-link > i {
     color: rgb(233, 148, 141);
   }
-
+  
   .meta-link {
     align-items: center;
     backdrop-filter: blur(3px);
@@ -154,17 +156,17 @@
     transition: background-color 400ms, border-color 400ms;
     z-index: 10000;
   }
-
+  
   .meta-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
-
+  
   .meta-link > i, .meta-link > span {
     height: 20px;
     line-height: 20px;
   }
-
+  
   .meta-link > span {
     color: white;
     font-family: "Rubik", sans-serif;
