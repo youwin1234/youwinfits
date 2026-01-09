@@ -31,6 +31,10 @@
   #prt-link {
     bottom: 60px;
   }
+
+  #art-link {
+    bottom: 110px;
+  }
   
   #prt-link > i {
     color: rgb(148, 141, 233);
@@ -106,6 +110,7 @@
     overflow-y: hidden;
     align-items: center;
     justify-content: flex-start;
+    z-index: 1;
   }
 
   #image-track > .image {
@@ -123,6 +128,10 @@
   
   #prt-link {
     bottom: 60px;
+  }
+
+  #art-link {
+    bottom: 110px;
   }
   
   #prt-link > i {
@@ -161,7 +170,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
   
-  .meta-link > i, .meta-link > span {
+  .meta-link > i, .meta-link > span, .meta-link > i {
     height: 20px;
     line-height: 20px;
   }
