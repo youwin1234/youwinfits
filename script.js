@@ -1,5 +1,31 @@
 const track = document.getElementById("image-track");
 
+// Preload all images to cache them and improve dragging performance
+const preloadImages = () => {
+  const images = track.querySelectorAll("img");
+  let loadedCount = 0;
+  
+  images.forEach((img) => {
+    const preloadImg = new Image();
+    preloadImg.onload = () => {
+      loadedCount++;
+      console.log(`Image preloaded: ${loadedCount}/${images.length}`);
+    };
+    preloadImg.onerror = () => {
+      loadedCount++;
+      console.warn(`Failed to preload: ${img.src}`);
+    };
+    preloadImg.src = img.src;
+  });
+};
+
+// Start preloading images when the page loads
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", preloadImages);
+} else {
+  preloadImages();
+}
+
 const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
 
 const handleOnUp = () => {
